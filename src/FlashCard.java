@@ -27,7 +27,7 @@ public class FlashCard {
 
     @Override
     public String toString() {
-        return this.term + ", " + this.description;
+        return this.term + ", " + this.description + ", " + this.nailedIt;
     }
 
 

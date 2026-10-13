@@ -29,14 +29,13 @@ public class FileIO {
         File file = new File(path);
         try {
             FileWriter writer = new FileWriter(file);
-            //TODO: gennemløb listen med objekter og skriv...
-            //while(){}
-            deck.getCards();
-
+            for (FlashCard fc : deck.getCards()) {
+                writer.write(fc.toString() + "\n");
+            }
+            writer.close();
 
         } catch(IOException e) {
-
+            System.out.println(e);
         }
-
     }
 }
