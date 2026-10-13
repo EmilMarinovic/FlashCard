@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+class Main{
+
+}
+
+class FileIO{
+- Scanner
+- File
++ void readData()
++ void writeData()
+}
+
+class FlashCard{
+- String term
+- String description
+
++ void flipCard()
+
+}
+
+class Deck{
+- ArrayList<FlashCard>
+
++ void disPlayAllCards()
++ FlashCard getNextCard()
++ void displayNextCard()
++ void addCard()
++ void removeCard()
+
+}
+
+
+Deck *-- FlashCard: has
+@enduml
