@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TextUI {
@@ -26,9 +27,10 @@ public class TextUI {
         try {
             input = scan.nextInt();
             scan.nextLine();
-        } catch (Exception e) {
+        } catch (InputMismatchException e) {
             scan.nextLine();
-            promptNumeric(msg);
+            System.out.println("Skriv et tal!");
+            input = promptNumeric(msg);
         }
         return input;
     }

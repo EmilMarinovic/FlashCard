@@ -4,7 +4,7 @@ public class Deck {
     private ArrayList<FlashCard> cards = new ArrayList<>();
     private int count = 0;
     private FlashCard currentCard;
-    private TextUI ui;
+    private TextUI ui = new TextUI();
 
     public void addCard(FlashCard fc) {
         this.cards.add(fc);
@@ -22,10 +22,16 @@ public class Deck {
 
     public void displayNextCard() {
         currentCard = cards.get(count);
-        System.out.println("*****************");
-        System.out.println(currentCard.getTerm());
-        System.out.println("*****************");
-        count++;
+
+        if (currentCard.getStatus() == false) {
+            System.out.println("*****************");
+            System.out.println(currentCard.getTerm());
+            System.out.println("*****************");
+            count++;
+        } else {
+            count++;
+            displayNextCard();
+        }
     }
 
     public void flipCard() {
@@ -54,11 +60,10 @@ public class Deck {
 
     public void runSubMenu() {
         int input = ui.promptNumeric("1. Edit flashcard\n2. Mark as nailed");
-        if(input == 1) editCard();
-        else if (input == 2) markCard();
-        else {
-            System.out.println("You have to choose between 1 or 2!");
+        switch (input) {
+            case 1 -> editCard();
+            case 2 -> markCard();
+            default -> System.out.println("You have to choose between 1 or 2!");
         }
-
     }
 }

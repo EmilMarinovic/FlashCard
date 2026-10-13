@@ -16,6 +16,7 @@ public class Main {
             switch (choice) {
                 case 1 -> {
                     deck.flipCard();
+                    deck.runSubMenu();
                 }
                 case 2 -> deck.displayNextCard();
                 case 3 -> running = false;

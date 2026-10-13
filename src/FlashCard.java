@@ -17,6 +17,10 @@ public class FlashCard {
         description = text;
     }
 
+    public boolean getStatus() {
+        return nailedIt;
+    }
+
     public String getTerm() {
         return term;
     }
